@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card-principal {
+  /* Estilos adicionais para o cartão */
+  background-color: grey;
+}
