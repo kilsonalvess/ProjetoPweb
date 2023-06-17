@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -9,10 +13,12 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
 import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FirestoreModule } from './firestore/firestore.module';
+import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ConversorMoedasComponent
   ],
   imports: [
     BrowserModule,
@@ -22,9 +28,11 @@ import { FirestoreModule } from './firestore/firestore.module';
     UsuarioModule,
     LayoutModule,
     HttpClientModule,
-    FirestoreModule
+    FirestoreModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
