@@ -1,10 +1,13 @@
-<mat-toolbar>
-  <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">Menu</button>
+<mat-toolbar color="primary">
+  <button mat-mini-fab color="primary" [matMenuTriggerFor]="menu">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Menu</span>
   <mat-menu #menu="matMenu">
   <button mat-menu-item [routerLink]="['ver-perfil']">Ver Perfil</button>
   <button mat-menu-item [routerLink]="['conversor-moedas']">Conversor de Moedas</button>
   <button mat-menu-item>Transferir Dinheiro</button>
-  
+
 </mat-menu>
 </mat-toolbar>
 <router-outlet></router-outlet>

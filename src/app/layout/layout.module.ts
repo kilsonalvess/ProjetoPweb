@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from '../app-routing.module';
 import { ListarUsuarioComponent } from '../modules/usuario/listar-usuario/listar-usuario.component';
@@ -29,7 +30,8 @@ import { MenuComponent } from './menu/menu.component';
     FormsModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   exports: [
     MenuComponent
