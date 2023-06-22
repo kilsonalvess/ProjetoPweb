@@ -6,12 +6,11 @@
 }
 
 .card-principal {
-  /* Estilos adicionais para o cartão */
   background-color: #FFF;
   border: 1px solid #808080 ;
 }
 
-.form-field {
+.card-content > mat-form-field {
   width: 100%;
 }
 

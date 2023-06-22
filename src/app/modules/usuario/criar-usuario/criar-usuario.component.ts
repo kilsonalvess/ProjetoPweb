@@ -11,6 +11,7 @@ import { UsuarioFirestoreService } from 'src/app/shared/services/usuario-firesto
 export class CriarUsuarioComponent implements OnInit{
   usuario: Usuario;
   usuarios: Usuario[] = [];
+  hide = true;
 
   constructor(private usuarioService: UsuarioFirestoreService) {
     this.usuario = new Usuario();

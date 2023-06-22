@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
-
+import { MatIconModule } from '@angular/material/icon';
 import { AlterarUsuarioComponent } from './alterar-usuario/alterar-usuario.component';
 import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
 
@@ -24,7 +24,8 @@ import { CriarUsuarioComponent } from './criar-usuario/criar-usuario.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ],
   exports: [
     CriarUsuarioComponent
