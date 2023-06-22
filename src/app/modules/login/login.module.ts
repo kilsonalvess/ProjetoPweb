@@ -6,7 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-
+import {MatIconModule} from '@angular/material/icon';
 import { TelaDeLoginComponent } from './tela-de-login/tela-de-login.component';
 
 
@@ -21,7 +21,8 @@ import { TelaDeLoginComponent } from './tela-de-login/tela-de-login.component';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    RouterLink
+    RouterLink,
+    MatIconModule
   ],
   exports: [
     TelaDeLoginComponent

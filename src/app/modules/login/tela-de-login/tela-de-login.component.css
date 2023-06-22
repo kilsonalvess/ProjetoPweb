@@ -1,4 +1,4 @@
-.container {
+.div-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,5 +7,23 @@
 
 .card-principal {
   /* Estilos adicionais para o cartão */
-  background-color: grey;
+  background-color: #FFF;
+  border: 1px solid #808080 ;
+}
+
+.form-field {
+  width: 100%;
+}
+
+.card-header {
+  justify-content: center;
+}
+
+.card-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-weight: 500;
 }

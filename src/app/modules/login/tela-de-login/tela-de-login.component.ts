@@ -12,7 +12,7 @@ import { UsuarioFirestoreService } from 'src/app/shared/services/usuario-firesto
 export class TelaDeLoginComponent implements OnInit{
   usuario: Usuario;
   usuarios: Usuario[] = [];
-
+  hide = true;
   constructor(private usuarioService: UsuarioFirestoreService, private router: Router){
     this.usuario = new Usuario();
   }
