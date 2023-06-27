@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/shared/model/usuario';
-import { UsuarioFirestoreService } from 'src/app/shared/services/usuario-firestore.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
   selector: 'app-criar-usuario',
@@ -13,7 +13,7 @@ export class CriarUsuarioComponent implements OnInit{
   usuarios: Usuario[] = [];
   hide = true;
 
-  constructor(private usuarioService: UsuarioFirestoreService) {
+  constructor(private usuarioService: UsuarioService) {
     this.usuario = new Usuario();
   }
 
@@ -25,7 +25,7 @@ export class CriarUsuarioComponent implements OnInit{
 
   criarUsuario(usuario: Usuario) {
     this.usuarioService.inserir(usuario).subscribe(
-      novoUsuario => console.log(usuario)
+      novoUsuario => this.usuarios.push(novoUsuario)
     )
   }
 }

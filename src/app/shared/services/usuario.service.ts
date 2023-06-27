@@ -16,7 +16,7 @@ export class UsuarioService {
     return this.httpClient.get<Usuario[]>(this.URL_USUARIOS);
   }
 
-  adicionar(usuario: Usuario): Observable<Usuario> {
+  inserir(usuario: Usuario): Observable<Usuario> {
     return this.httpClient.post<Usuario>(this.URL_USUARIOS, usuario);
   }
 
@@ -24,14 +24,11 @@ export class UsuarioService {
     return this.httpClient.get<Usuario>(`${this.URL_USUARIOS}/${id}`);
   }
 
-  alterar(usuario: Usuario): void {
-    const ObjObservable = this.httpClient.put<Usuario>(`${this.URL_USUARIOS}/${usuario.id}`, usuario);
-    ObjObservable.subscribe(
-      UsuarioAlterado => UsuarioAlterado = usuario
-    )
+  alterar(usuario: Usuario): Observable<Usuario> {
+    return this.httpClient.put<Usuario>(`${this.URL_USUARIOS}/${usuario.id}`, usuario);
   }
 
-  remover(id: number): Observable<Usuario> {
+  apagar(id: number): Observable<Usuario> {
     return this.httpClient.delete<Usuario>(`${this.URL_USUARIOS}/${id}`);
   }
 

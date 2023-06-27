@@ -5,15 +5,11 @@ import { TelaDeLoginComponent } from './modules/login/tela-de-login/tela-de-logi
 import { AlterarUsuarioComponent } from './modules/usuario/alterar-usuario/alterar-usuario.component';
 import { CriarUsuarioComponent } from './modules/usuario/criar-usuario/criar-usuario.component';
 import { ListarUsuarioComponent } from './modules/usuario/listar-usuario/listar-usuario.component';
-import { combineChange } from '@angular/fire/compat/firestore';
 import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
-
-
-
 
 const routes: Routes = [
   {
-    path: 'login',
+    path: '',
     component: TelaDeLoginComponent
   },
   {
@@ -36,10 +32,6 @@ const routes: Routes = [
         path : 'conversor-moedas',
         component: ConversorMoedasComponent
       }
-
-
-
-        
     ]
   }
 ];

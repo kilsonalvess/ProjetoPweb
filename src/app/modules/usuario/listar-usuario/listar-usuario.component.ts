@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/shared/model/usuario';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioFirestoreService } from 'src/app/shared/services/usuario-firestore.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
   selector: 'app-listar-usuario',
@@ -12,14 +13,14 @@ export class ListarUsuarioComponent implements OnInit {
   usuario: Usuario;
   usuarios: Usuario[] = [];
 
-  constructor(private usuarioService: UsuarioFirestoreService, private rotaAtual: ActivatedRoute, private router: Router) {
+  constructor(private usuarioService: UsuarioService, private rotaAtual: ActivatedRoute, private router: Router) {
     this.usuario = new Usuario();
   }
 
   ngOnInit(): void {
     const idUsuario = this.rotaAtual.parent?.snapshot.paramMap.get('id');
     if (idUsuario) {
-      this.usuarioService.pesquisarPorId(idUsuario).subscribe(
+      this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
         usuario => this.usuario = usuario
       )
     }
@@ -32,7 +33,7 @@ export class ListarUsuarioComponent implements OnInit {
 
   btnRemover(){
     if(this.usuario.id) {
-      this.usuarioService.apagar(this.usuario.id).subscribe(
+      this.usuarioService.apagar(parseInt(this.usuario.id)).subscribe(
         usuarioRemovido => {
           const indx = this.usuarios.findIndex(usuario =>
             usuario.id === this.usuario.id);
@@ -40,6 +41,6 @@ export class ListarUsuarioComponent implements OnInit {
         }
       )
     }
-    this.router.navigate(['/login'])
+    this.router.navigate(['/'])
   }
 }

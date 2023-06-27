@@ -53,7 +53,6 @@ const id = usuario.id;
 delete usuario.id;
 return from(this.colecaoUsuarios.doc(id).update(Object.assign({}, usuario)));
 
-
  }
 
 
