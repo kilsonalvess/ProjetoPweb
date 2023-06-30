@@ -9,8 +9,8 @@
       <p class="texto-branco">Nome: {{usuario.nome}}</p>
       <p class="texto-branco">Idade: {{usuario.idade}}</p>
       <p class="texto-branco">CPF: {{usuario.cpf}}</p>
-      <p class="texto-branco">Agencia: {{usuario.agencia}}</p>
-      <p class="texto-branco">Saldo: {{usuario.saldo}}</p>
+      <p class="texto-branco">Agencia: {{usuario.conta.agencia}}</p>
+      <p class="texto-branco">Saldo: {{usuario.conta.saldo}}</p>
   </mat-card-content>
     <mat-card-actions>
       <button mat-button (click)="btnAlterar()">Alterar Info</button>

@@ -1,24 +1,3 @@
 {
-  "Usuarios": [
-    {
-      "username": "gabriel",
-      "password": "",
-      "nome": "",
-      "idade": 0,
-      "cpf": "",
-      "agencia": "",
-      "saldo": 0,
-      "id": 1
-    },
-    {
-      "username": "kilson",
-      "password": "",
-      "nome": "",
-      "idade": 0,
-      "cpf": "",
-      "agencia": "",
-      "saldo": 0,
-      "id": 2
-    }
-  ]
+  "Usuarios": []
 }

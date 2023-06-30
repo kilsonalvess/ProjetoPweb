@@ -14,6 +14,7 @@ import { LayoutModule } from './layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FirestoreModule } from './firestore/firestore.module';
 import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
+import { ContaModule } from './modules/conta/conta.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.co
     HttpClientModule,
     FirestoreModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    ContaModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
