@@ -1,3 +1,32 @@
 {
-  "Usuarios": []
+  "Contas": [
+    {
+      "agencia": "",
+      "saldo": 60,
+      "id": 1
+    },
+    {
+      "agencia": "",
+      "saldo": 0,
+      "id": 2
+    }
+  ],
+  "Usuarios": [
+    {
+      "username": "gm6",
+      "password": "123",
+      "nome": "Gabriel Manassés ",
+      "idade": "24",
+      "cpf": "321321321",
+      "id": 1
+    },
+    {
+      "username": "kilson",
+      "password": "321",
+      "nome": "",
+      "idade": 0,
+      "cpf": "",
+      "id": 2
+    }
+  ]
 }

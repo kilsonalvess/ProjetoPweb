@@ -1,7 +1,4 @@
-import { Conta } from "./conta";
-
 export class Usuario {
-  public conta: Conta;
 
   constructor(
     public id?: string,
@@ -10,7 +7,5 @@ export class Usuario {
     public nome:string = '',
     public idade: number = 0,
     public cpf:string = '')
-    {
-      this.conta = new Conta();
-    }
+    {}
 }
