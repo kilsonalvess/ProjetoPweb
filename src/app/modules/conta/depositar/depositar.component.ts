@@ -34,8 +34,7 @@ export class DepositarComponent implements OnInit{
   }
 
   depositar() {
-    this.contaService.alterar(this.conta).subscribe(
-      contaAlterada => this.conta.saldo = this.conta.saldo + parseFloat(this.inputQuantia)
-    )
+    this.conta.saldo += parseFloat(this.inputQuantia)
+    this.contaService.alterar(this.conta).subscribe()
   }
 }
