@@ -49,11 +49,14 @@ export class ListarUsuarioComponent implements OnInit {
           this.usuarios.splice(indx, 1);
         }
       )
-      this.contaService.apagar(parseInt(this.usuario.id)).subscribe(
+    }
+
+    if (this.conta.id) {
+      this.contaService.apagar(parseInt(this.conta.id)).subscribe(
         contaRemovida => {
           const indx = this.contas.findIndex(conta =>
-            conta.id === this.usuario.id);
-          this.usuarios.splice(indx, 1);
+            conta.id === this.conta.id);
+          this.contas.splice(indx, 1);
         }
       )
     }
