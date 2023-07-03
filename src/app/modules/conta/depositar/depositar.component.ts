@@ -23,12 +23,12 @@ export class DepositarComponent implements OnInit{
 
   ngOnInit(): void {
     const idUsuario = this.rotaAtual.parent?.snapshot.paramMap.get('id');
-    if(idUsuario) {
+    if (idUsuario) {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
-        usuario => this.usuario = usuario
-      )
-      this.contaService.pesquisarPorId(parseInt(idUsuario)).subscribe(
-        conta => this.conta = conta
+        usuario => {
+          this.usuario = usuario
+          this.contaService.pesquisarPorCPF(this.usuario.cpf).subscribe((conta: Conta[])=> this.conta = conta[0])
+        }
       )
     }
   }

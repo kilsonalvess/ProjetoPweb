@@ -26,13 +26,13 @@ export class ListarUsuarioComponent implements OnInit {
     const idUsuario = this.rotaAtual.parent?.snapshot.paramMap.get('id');
     if (idUsuario) {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
-        usuario => this.usuario = usuario
-      )
-      this.contaService.pesquisarPorId(parseInt(idUsuario)).subscribe(
-        conta => this.conta = conta
+        usuario => {
+          this.usuario = usuario
+          this.contaService.pesquisarPorCPF(this.usuario.cpf).subscribe((conta: Conta[])=> this.conta = conta[0])
+        }
       )
     }
-
+    this.contaService.listar().subscribe(contas => this.contas = contas)
     this.usuarioService.listar().subscribe(usuarios => this.usuarios = usuarios)
   }
 

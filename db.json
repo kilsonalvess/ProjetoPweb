@@ -2,31 +2,32 @@
   "Contas": [
     {
       "agencia": "",
-      "saldo": 60,
-      "id": 1
+      "saldo": 2,
+      "cpf": "123",
+      "id": 2
     },
     {
-      "agencia": "",
-      "saldo": 0,
-      "id": 2
+      "saldo": 10,
+      "cpf": "12",
+      "id": 3
     }
   ],
   "Usuarios": [
     {
-      "username": "gm6",
-      "password": "123",
-      "nome": "Gabriel Manassés ",
-      "idade": "24",
-      "cpf": "321321321",
-      "id": 1
+      "username": "kilson",
+      "password": "321",
+      "nome": "kilson alves",
+      "idade": "33",
+      "cpf": "123",
+      "id": 2
     },
     {
       "username": "kilson",
-      "password": "321",
+      "password": "123",
       "nome": "",
       "idade": 0,
-      "cpf": "",
-      "id": 2
+      "cpf": "12",
+      "id": 3
     }
   ]
 }

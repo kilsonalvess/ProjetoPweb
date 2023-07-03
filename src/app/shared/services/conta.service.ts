@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 
 export class ContaService {
-  URL_CONTAS = 'http://localhost:3000/contas';
+  URL_CONTAS = 'http://localhost:8080/contas';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -24,11 +24,15 @@ export class ContaService {
     return this.httpClient.get<Conta>(`${this.URL_CONTAS}/${id}`);
   }
 
-  alterar(conta: Conta): Observable<Conta> {
-    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/${conta.id}`, conta);
+  alterar(usuario: Conta): Observable<Conta> {
+    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/${usuario.id}`, usuario);
   }
 
   apagar(id: number): Observable<Conta> {
     return this.httpClient.delete<Conta>(`${this.URL_CONTAS}/${id}`);
+  }
+
+  pesquisarPorCPF(cpf: string): Observable<Conta[]> {
+    return this.httpClient.get<Conta[]>(`${this.URL_CONTAS}?cpf=${cpf}`);
   }
 }

@@ -19,7 +19,7 @@ export class CriarUsuarioComponent implements OnInit{
 
   constructor(private usuarioService: UsuarioService, private contaService: ContaService) {
     this.usuario = new Usuario();
-    this.conta = new Conta(this.usuario.id);
+    this.conta = new Conta();
   }
 
   ngOnInit(): void {
@@ -33,11 +33,16 @@ export class CriarUsuarioComponent implements OnInit{
 
   criarUsuario(usuario: Usuario) {
     this.usuarioService.inserir(usuario).subscribe(
-      novoUsuario => this.usuarios.push(novoUsuario)
+      novoUsuario => {
+        this.usuarios.push(novoUsuario)
+      }
     )
-
+    this.conta.cpf = usuario.cpf;
     this.contaService.inserir(this.conta).subscribe(
       novaConta => this.contas.push(novaConta)
     )
+
+    this.usuario = new Usuario();
+    this.conta = new Conta();
   }
 }
