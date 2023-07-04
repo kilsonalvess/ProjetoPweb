@@ -25,20 +25,18 @@ export class AlterarUsuarioComponent {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
         usuario => {
           this.usuario = usuario
-          this.contaService.pesquisarPorCPF(this.usuario.cpf).subscribe((conta: Conta[])=> this.conta = conta[0])
+          this.contaService.findByCpf(this.usuario.cpf).subscribe(conta=> this.conta = conta)
         }
       )
     }
   }
 
   alterarUsuario(){
-    this.usuarioService.alterar(this.usuario).subscribe(
-      usuarioAlterado => this.usuario = usuarioAlterado
-    )
-    if (this.conta.cpf != this.usuario.cpf) {
-      this.conta.cpf = this.usuario.cpf
-      this.contaService.alterar(this.conta).subscribe()
-    }
+    this.usuarioService.alterar(this.usuario).subscribe()
+
+    this.conta.cpf = this.usuario.cpf
+    this.contaService.alterar(this.conta).subscribe()
+
     this.router.navigate(['ver-perfil'], { relativeTo: this.rotaAtual.parent });
   }
 }

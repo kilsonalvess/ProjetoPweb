@@ -7,6 +7,7 @@ import { CriarUsuarioComponent } from './modules/usuario/criar-usuario/criar-usu
 import { ListarUsuarioComponent } from './modules/usuario/listar-usuario/listar-usuario.component';
 import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
 import { DepositarComponent } from './modules/conta/depositar/depositar.component';
+import { TransferirComponent } from './modules/conta/transferir/transferir.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
       {
         path: 'depositar',
         component: DepositarComponent
+      },
+      {
+        path: 'transferir',
+        component: TransferirComponent
       }
     ]
   }

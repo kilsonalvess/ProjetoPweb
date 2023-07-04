@@ -8,10 +8,12 @@ import { MatInputModule } from '@angular/material/input';
 import { RouterLink } from '@angular/router';
 
 import { DepositarComponent } from './depositar/depositar.component';
+import { TransferirComponent } from './transferir/transferir.component';
 
 @NgModule({
   declarations: [
-    DepositarComponent
+    DepositarComponent,
+    TransferirComponent
   ],
   imports: [
     CommonModule,

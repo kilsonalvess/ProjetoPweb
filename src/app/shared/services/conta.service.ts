@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Conta } from '../model/conta';
 import { Observable } from 'rxjs';
+import { Usuario } from '../model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +25,19 @@ export class ContaService {
     return this.httpClient.get<Conta>(`${this.URL_CONTAS}/${id}`);
   }
 
-  alterar(usuario: Conta): Observable<Conta> {
-    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/${usuario.id}`, usuario);
+  alterar(conta: Conta): Observable<Conta> {
+    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/${conta.id}`, conta);
   }
 
   apagar(id: number): Observable<Conta> {
     return this.httpClient.delete<Conta>(`${this.URL_CONTAS}/${id}`);
   }
 
-  pesquisarPorCPF(cpf: string): Observable<Conta[]> {
-    return this.httpClient.get<Conta[]>(`${this.URL_CONTAS}?cpf=${cpf}`);
+  depositar(conta: Conta): Observable<Conta> {
+    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/${conta.id}/saldo`, conta);
+  }
+
+  findByCpf(cpf: string): Observable<Conta> {
+    return this.httpClient.get<Conta>(`${this.URL_CONTAS}/cpf/${cpf}`);
   }
 }

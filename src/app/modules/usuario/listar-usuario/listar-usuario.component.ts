@@ -28,7 +28,7 @@ export class ListarUsuarioComponent implements OnInit {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
         usuario => {
           this.usuario = usuario
-          this.contaService.pesquisarPorCPF(this.usuario.cpf).subscribe((conta: Conta[])=> this.conta = conta[0])
+          this.contaService.findByCpf(this.usuario.cpf).subscribe(conta=> this.conta = conta)
         }
       )
     }

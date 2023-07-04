@@ -1,22 +1,24 @@
-import { ContaService } from './../../../shared/services/conta.service';
-import { UsuarioService } from './../../../shared/services/usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Conta } from 'src/app/shared/model/conta';
 import { Usuario } from 'src/app/shared/model/usuario';
+import { ContaService } from 'src/app/shared/services/conta.service';
+import { UsuarioService } from 'src/app/shared/services/usuario.service';
 
 @Component({
-  selector: 'app-depositar',
-  templateUrl: './depositar.component.html',
-  styleUrls: ['./depositar.component.css']
+  selector: 'app-transferir',
+  templateUrl: './transferir.component.html',
+  styleUrls: ['./transferir.component.css']
 })
-export class DepositarComponent implements OnInit{
-  usuario: Usuario;
+export class TransferirComponent implements OnInit{
+  usuarioDestinatario: Usuario;
+  usuarioRemetente: Usuario;
   conta: Conta;
   inputQuantia: string= '0';
 
   constructor(private usuarioService: UsuarioService, private rotaAtual: ActivatedRoute, private contaService: ContaService){
-    this.usuario = new Usuario();
+    this.usuarioDestinatario = new Usuario();
+    this.usuarioRemetente = new Usuario();
     this.conta = new Conta();
   }
 
@@ -25,8 +27,8 @@ export class DepositarComponent implements OnInit{
     if (idUsuario) {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
         usuario => {
-          this.usuario = usuario
-          this.contaService.findByCpf(this.usuario.cpf).subscribe(conta=> this.conta = conta)
+          this.usuarioDestinatario = usuario
+          //this.contaService.pesquisarPorCPF(this.usuario).subscribe(conta=> this.conta = conta)
         }
       )
     }
@@ -34,6 +36,10 @@ export class DepositarComponent implements OnInit{
 
   depositar() {
     this.conta.saldo += parseFloat(this.inputQuantia)
-    this.contaService.depositar(this.conta).subscribe()
+    this.contaService.alterar(this.conta).subscribe()
+  }
+
+  transferir() {
+
   }
 }
