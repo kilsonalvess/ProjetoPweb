@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { Usuario } from 'src/app/shared/model/usuario';
 import { UsuarioService } from 'src/app/shared/services/usuario.service';
 import { Conta } from 'src/app/shared/model/conta';
+import { MatSnackBar ,MatSnackBarConfig} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-alterar-usuario',
@@ -14,7 +15,7 @@ export class AlterarUsuarioComponent {
   usuario: Usuario
   conta: Conta
 
-  constructor(private usuarioService: UsuarioService, private contaService: ContaService, private rotaAtual: ActivatedRoute, private router: Router) {
+  constructor(private usuarioService: UsuarioService, private contaService: ContaService, private rotaAtual: ActivatedRoute, private router: Router,private snackBar: MatSnackBar) {
     this.usuario = new Usuario();
     this.conta = new Conta();
   }
@@ -38,5 +39,13 @@ export class AlterarUsuarioComponent {
     this.contaService.alterar(this.conta).subscribe()
 
     this.router.navigate(['ver-perfil'], { relativeTo: this.rotaAtual.parent });
+
+    const SnackConfig = new MatSnackBarConfig ();
+      SnackConfig.politeness = 'assertive';
+      SnackConfig.duration = 5000;
+      SnackConfig.panelClass = ['success'];
+
+
+      this.snackBar.open('Dados alterados com sucesso!', '',SnackConfig);
   }
 }

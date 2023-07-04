@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Conta } from 'src/app/shared/model/conta';
 import { Usuario } from 'src/app/shared/model/usuario';
+import {MatSnackBar,MatSnackBarConfig} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-depositar',
@@ -15,7 +17,7 @@ export class DepositarComponent implements OnInit{
   conta: Conta;
   inputQuantia: string= '0';
 
-  constructor(private usuarioService: UsuarioService, private rotaAtual: ActivatedRoute, private contaService: ContaService){
+  constructor(private usuarioService: UsuarioService, private rotaAtual: ActivatedRoute, private contaService: ContaService,private snackBar: MatSnackBar){
     this.usuario = new Usuario();
     this.conta = new Conta();
   }
@@ -35,5 +37,17 @@ export class DepositarComponent implements OnInit{
   depositar() {
     this.conta.saldo += parseFloat(this.inputQuantia)
     this.contaService.depositar(this.conta).subscribe()
+    
+    const SnackConfig = new MatSnackBarConfig ();
+      SnackConfig.politeness = 'assertive';
+      SnackConfig.duration = 5000;
+      SnackConfig.panelClass = ['success'];
+
+
+      this.snackBar.open('Deposito realizado com sucesso!', '',SnackConfig);
   }
-}
+    
+  }
+
+  
+

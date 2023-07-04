@@ -15,6 +15,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FirestoreModule } from './firestore/firestore.module';
 import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
 import { ContaModule } from './modules/conta/conta.module';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { ContaModule } from './modules/conta/conta.module';
     FirestoreModule,
     ReactiveFormsModule,
     CommonModule,
-    ContaModule
+    ContaModule,
+    MatSnackBarModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

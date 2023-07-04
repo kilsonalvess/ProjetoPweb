@@ -7,5 +7,15 @@
 
 .card-principal {
   /* Estilos adicionais para o cartão */
-  background-color: grey;
+  background-color: whitesmoke;
+}
+
+.botaodireito{
+left: 19%;
+
+}
+
+.card-header{
+
+  background-color: whitesmoke;
 }

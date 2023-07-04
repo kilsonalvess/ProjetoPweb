@@ -11,5 +11,25 @@
 }
 
 .texto-branco {
-  color: white;
+  color: black;
+}
+
+.button{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+
+.botaodireito{
+  left:2%;
+
+}
+
+.card-header{
+  background-color: whitesmoke;
+}
+
+.card-principal{
+  background-color: whitesmoke;
 }

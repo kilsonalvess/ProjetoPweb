@@ -1,6 +1,6 @@
 <div class="container">
   <mat-card class="card-principal">
-    <mat-card-header>
+    <mat-card-header class ="card-header">
       <mat-card-title class="titulo">Seu Perfil</mat-card-title>
     </mat-card-header>
 
@@ -12,9 +12,9 @@
       <p class="texto-branco">Saldo: {{conta.saldo}}</p>
   </mat-card-content>
     <mat-card-actions>
-      <button mat-button (click)="btnAlterar()">Alterar Info</button>
+      <button mat-raised-button color="primary" (click)="btnAlterar()">Alterar Info</button>
 
-      <button mat-button (click)="btnRemover()">Deletar Conta</button>
+      <button class ="botaodireito" mat-raised-button color="primary" (click)="btnRemover()">Deletar Conta</button>
     </mat-card-actions>
   </mat-card>
 </div>
