@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Conta } from '../model/conta';
 import { Observable } from 'rxjs';
-import { Usuario } from '../model/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +39,11 @@ export class ContaService {
   findByCpf(cpf: string): Observable<Conta> {
     return this.httpClient.get<Conta>(`${this.URL_CONTAS}/cpf/${cpf}`);
   }
+
+  transferir(contaOrigem: Conta, contaDestino: Conta, quantia: number): Observable<Conta[]> {
+    const transferencia = { contaOrigem, contaDestino, quantia };
+    return this.httpClient.put<Conta[]>(`${this.URL_CONTAS}/transferir`, transferencia);
+  }
+
+
 }

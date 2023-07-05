@@ -11,15 +11,15 @@ import { UsuarioService } from 'src/app/shared/services/usuario.service';
   styleUrls: ['./transferir.component.css']
 })
 export class TransferirComponent implements OnInit{
-  usuarioDestinatario: Usuario;
-  usuarioRemetente: Usuario;
-  conta: Conta;
+  usuarioOrigem: Usuario;
+  contaOrigem: Conta;
+  contaDestino: Conta;
   inputQuantia: string= '0';
 
   constructor(private usuarioService: UsuarioService, private rotaAtual: ActivatedRoute, private contaService: ContaService){
-    this.usuarioDestinatario = new Usuario();
-    this.usuarioRemetente = new Usuario();
-    this.conta = new Conta();
+    this.usuarioOrigem = new Usuario();
+    this.contaOrigem = new Conta();
+    this.contaDestino = new Conta();
   }
 
   ngOnInit(): void {
@@ -27,19 +27,26 @@ export class TransferirComponent implements OnInit{
     if (idUsuario) {
       this.usuarioService.pesquisarPorId(parseInt(idUsuario)).subscribe(
         usuario => {
-          this.usuarioDestinatario = usuario
-          //this.contaService.pesquisarPorCPF(this.usuario).subscribe(conta=> this.conta = conta)
+          this.usuarioOrigem = usuario
+          this.contaService.findByCpf(this.usuarioOrigem.cpf).subscribe(conta=> this.contaOrigem = conta)
         }
       )
     }
   }
 
-  depositar() {
-    this.conta.saldo += parseFloat(this.inputQuantia)
-    this.contaService.alterar(this.conta).subscribe()
-  }
-
   transferir() {
+    this.contaService.findByCpf(this.contaDestino.cpf).subscribe(conta => {
+      this.contaDestino = conta
 
+      console.log(this.contaOrigem)
+      console.log(this.contaDestino)
+      this.contaService.transferir(this.contaOrigem, this.contaDestino, parseFloat(this.inputQuantia)).subscribe(
+        contasAtualizadas => {
+          this.contaOrigem = contasAtualizadas[0];
+          this.contaDestino = contasAtualizadas[1];
+        }
+      )
+    })
   }
 }
+
