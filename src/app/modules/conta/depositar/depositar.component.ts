@@ -35,9 +35,10 @@ export class DepositarComponent implements OnInit{
   }
 
   depositar() {
-    this.conta.saldo += parseFloat(this.inputQuantia)
-    this.contaService.depositar(this.conta).subscribe()
-    
+    this.contaService.depositar(this.conta, parseFloat(this.inputQuantia)).subscribe(
+      contaAtualizada => this.conta = contaAtualizada
+    )
+
     const SnackConfig = new MatSnackBarConfig ();
       SnackConfig.politeness = 'assertive';
       SnackConfig.duration = 5000;
@@ -46,8 +47,8 @@ export class DepositarComponent implements OnInit{
 
       this.snackBar.open('Deposito realizado com sucesso!', '',SnackConfig);
   }
-    
+
   }
 
-  
+
 
