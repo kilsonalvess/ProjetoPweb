@@ -32,18 +32,23 @@ export class ContaService {
     return this.httpClient.delete<Conta>(`${this.URL_CONTAS}/${id}`);
   }
 
+  findByCpf(cpf: string): Observable<Conta> {
+    return this.httpClient.get<Conta>(`${this.URL_CONTAS}/cpf/${cpf}`);
+  }
+
   depositar(conta: Conta, quantia: number): Observable<Conta> {
     const deposito = { conta, quantia }
     return this.httpClient.put<Conta>(`${this.URL_CONTAS}/depositar`, deposito);
   }
 
-  findByCpf(cpf: string): Observable<Conta> {
-    return this.httpClient.get<Conta>(`${this.URL_CONTAS}/cpf/${cpf}`);
-  }
-
   transferir(contaOrigem: Conta, contaDestino: Conta, quantia: number): Observable<Conta[]> {
     const transferencia = { contaOrigem, contaDestino, quantia };
     return this.httpClient.put<Conta[]>(`${this.URL_CONTAS}/transferir`, transferencia);
+  }
+
+  sacar(conta: Conta, quantia: number): Observable<Conta> {
+    const sacar = { conta, quantia};
+    return this.httpClient.put<Conta>(`${this.URL_CONTAS}/sacar`, sacar);
   }
 
 }

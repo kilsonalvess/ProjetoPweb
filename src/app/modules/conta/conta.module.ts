@@ -9,11 +9,13 @@ import { RouterLink } from '@angular/router';
 
 import { DepositarComponent } from './depositar/depositar.component';
 import { TransferirComponent } from './transferir/transferir.component';
+import { SacarComponent } from './sacar/sacar.component';
 
 @NgModule({
   declarations: [
     DepositarComponent,
-    TransferirComponent
+    TransferirComponent,
+    SacarComponent
   ],
   imports: [
     CommonModule,

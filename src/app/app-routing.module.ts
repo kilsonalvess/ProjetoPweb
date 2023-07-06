@@ -1,4 +1,4 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MenuComponent } from './layout/menu/menu.component';
 import { TelaDeLoginComponent } from './modules/login/tela-de-login/tela-de-login.component';
@@ -8,6 +8,7 @@ import { ListarUsuarioComponent } from './modules/usuario/listar-usuario/listar-
 import { ConversorMoedasComponent } from './conversor-moedas/conversor-moedas.component';
 import { DepositarComponent } from './modules/conta/depositar/depositar.component';
 import { TransferirComponent } from './modules/conta/transferir/transferir.component';
+import { SacarComponent } from './modules/conta/sacar/sacar.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path: 'transferir',
         component: TransferirComponent
+      },
+      {
+        path: 'sacar',
+        component: SacarComponent
       }
     ]
   }
